@@ -1,8 +1,26 @@
-# Resto Base - Base para Páginas Web de Restaurantes
+# Resto Base - Aplicación Web de Restaurante
 
 ## 📋 Descripción del Proyecto
 
-**Resto Base** es una base de código moderna y escalable para crear páginas web de restaurantes con menú. El proyecto está construido con las últimas tecnologías de desarrollo web y está diseñado para ser fácilmente personalizable y extensible.
+**Resto Base** es una aplicación web moderna y completamente funcional para restaurantes. Incluye páginas principales, menú interactivo, sistema de navegación responsivo y componentes reutilizables. Construida con React, TypeScript y Tailwind CSS.
+
+## 🌟 Características Principales
+
+### **✅ Funcionalidades Implementadas**
+- **Página de Inicio** - Hero section con llamadas a la acción
+- **Página de Menú** - Menú interactivo con modal de detalles
+- **Página Nosotros** - Historia del restaurante y equipo
+- **Página de Contacto** - Formulario funcional e información de contacto
+- **Navegación Responsiva** - Menú hamburguesa funcional en móviles
+- **Componentes Reutilizables** - Header, Cards, Buttons
+- **Diseño Responsivo** - Optimizado para móviles, tablets y desktop
+
+### **🎨 Experiencia de Usuario**
+- **Menú Interactivo** - Cards clickeables con modal de detalles
+- **Navegación Móvil** - Menú hamburguesa con animaciones suaves
+- **Imágenes Optimizadas** - Integración con Unsplash para imágenes de alta calidad
+- **Animaciones** - Transiciones suaves y efectos hover
+- **Esquema de Colores** - Verde corporativo consistente en toda la aplicación
 
 ## 🏗️ Arquitectura del Proyecto
 
@@ -13,23 +31,28 @@ resto-base/
 ├── public/                 # Archivos estáticos públicos
 │   └── vite.svg           # Logo de Vite
 ├── src/                   # Código fuente principal
-│   ├── admin/             # Módulo de administración
-│   │   ├── layouts/       # Layouts para admin (vacío)
-│   │   └── page/          # Páginas de admin (vacío)
 │   ├── components/        # Componentes reutilizables
+│   │   ├── navigation/    # Componentes de navegación
+│   │   │   └── Navbar.tsx # Barra de navegación con menú móvil
 │   │   └── ui/           # Componentes de UI (shadcn/ui)
-│   │       └── button.tsx # Componente Button
+│   │       ├── button.tsx # Componente Button
+│   │       ├── card.tsx   # Componente Card
+│   │       └── ...        # Otros componentes UI
 │   ├── lib/              # Utilidades y helpers
 │   │   └── utils.ts      # Funciones utilitarias
 │   ├── restaurant/       # Módulo del restaurante
-│   │   ├── components/   # Componentes específicos (vacío)
-│   │   ├── layouts/      # Layouts del restaurante (vacío)
-│   │   └── pages/        # Páginas del restaurante (vacío)
-│   ├── routes/           # Configuración de rutas (vacío)
-│   ├── RestoBase.tsx     # Componente principal
-│   ├── main.tsx          # Punto de entrada de la aplicación
-│   ├── index.css         # Estilos globales y variables CSS
-│   └── vite-env.d.ts     # Definiciones de tipos para Vite
+│   │   ├── components/   # Componentes específicos
+│   │   │   └── Header.tsx # Header reutilizable
+│   │   ├── layouts/      # Layouts del restaurante
+│   │   │   └── RestaurantLayout.tsx # Layout principal
+│   │   └── pages/        # Páginas del restaurante
+│   │       ├── home/     # Página de inicio
+│   │       ├── menu/     # Página de menú
+│   │       ├── about/    # Página nosotros
+│   │       └── contact/  # Página de contacto
+│   ├── app.router.tsx    # Configuración de rutas
+│   ├── main.tsx          # Punto de entrada
+│   └── index.css         # Estilos globales
 ├── components.json       # Configuración de shadcn/ui
 ├── package.json          # Dependencias y scripts
 ├── tsconfig.json         # Configuración TypeScript
@@ -57,55 +80,6 @@ resto-base/
 - **Class Variance Authority** - Gestión de variantes de clases CSS
 - **clsx & tailwind-merge** - Utilidades para combinar clases CSS
 - **ESLint** - Linting de código
-- **tw-animate-css** - Animaciones con Tailwind
-
-## 🎨 Sistema de Diseño
-
-### **Configuración de shadcn/ui**
-- **Estilo**: New York
-- **Colores base**: Slate
-- **Variables CSS**: Habilitadas
-- **Biblioteca de iconos**: Lucide
-- **Soporte RSC**: Deshabilitado
-
-### **Aliases de Importación**
-```typescript
-"@/components" → src/components
-"@/lib" → src/lib
-"@/utils" → src/lib/utils
-"@/ui" → src/components/ui
-"@/hooks" → src/hooks
-```
-
-## 📦 Dependencias Principales
-
-### **Producción**
-```json
-{
-  "@radix-ui/react-slot": "^1.2.3",
-  "@tailwindcss/vite": "^4.1.12",
-  "class-variance-authority": "^0.7.1",
-  "clsx": "^2.1.1",
-  "lucide-react": "^0.539.0",
-  "react": "^19.1.1",
-  "react-dom": "^19.1.1",
-  "react-router": "^7.8.1",
-  "tailwind-merge": "^3.3.1",
-  "tailwindcss": "^4.1.12"
-}
-```
-
-### **Desarrollo**
-```json
-{
-  "@types/react": "^19.1.10",
-  "@types/react-dom": "^19.1.7",
-  "@vitejs/plugin-react-swc": "^4.0.0",
-  "eslint": "^9.33.0",
-  "typescript": "~5.8.3",
-  "vite": "^7.1.2"
-}
-```
 
 ## 🚀 Scripts Disponibles
 
@@ -144,46 +118,72 @@ npm install
 npm run dev
 ```
 
-## 🎯 Estado Actual del Proyecto
+## 📱 Páginas y Funcionalidades
 
-### **✅ Implementado**
-- Configuración base de React + TypeScript + Vite
-- Sistema de componentes con shadcn/ui
-- Configuración de Tailwind CSS con variables personalizadas
-- Estructura modular para admin y restaurant
-- Componente Button funcional
-- Utilidades para manejo de clases CSS
-- Configuración de ESLint y TypeScript
+### **🏠 Página de Inicio (HomePage)**
+- Hero section con fondo verde gradient
+- Botones de acción: "Ver Menú" y "Reservar Mesa"
+- Secciones de bienvenida y llamadas a la acción
 
-### **🚧 Pendiente de Desarrollo**
-- Componentes específicos del restaurante (menú, productos, etc.)
-- Páginas principales (inicio, menú, contacto, etc.)
-- Sistema de enrutamiento
-- Layouts responsivos
-- Componentes de administración
-- Integración con backend/API
-- Sistema de autenticación
-- Gestión de estado global
+### **🍽️ Página de Menú (MenuPage)**
+- Grid responsivo de platos (1-3 columnas según dispositivo)
+- Cards interactivas con imágenes de Unsplash
+- Modal con detalles completos del plato
+- Precios y descripciones detalladas
+- Menú con 6 platos españoles auténticos
 
-## 🎨 Características de Diseño
+### **👥 Página Nosotros (AboutPage)**
+- Historia del restaurante desde 1985
+- Sección de valores y filosofía
+- Presentación del equipo (Chef, Sommelier, Manager)
+- Estadísticas del restaurante
+- Imágenes profesionales del interior
 
-### **Tema de Colores**
-El proyecto utiliza un sistema de variables CSS personalizado con soporte para modo oscuro:
-- Colores primarios y secundarios configurables
-- Variables de radio de borde personalizables
-- Sistema de colores semánticos (destructive, muted, accent, etc.)
+### **📞 Página de Contacto (ContactPage)**
+- Formulario de contacto funcional con validación
+- Información de contacto (dirección, teléfono, email, horarios)
+- Sección para futura integración de Google Maps
+- Estados de carga y confirmación
 
-### **Componentes UI**
-- **Button**: Componente con múltiples variantes (default, destructive, outline, secondary, ghost, link)
-- Sistema de tamaños (sm, default, lg, icon)
-- Soporte para iconos y estados de carga
-- Accesibilidad integrada
+### **🧭 Navegación (Navbar)**
+- Logo y nombre del restaurante
+- Enlaces: Inicio, Menú, Nosotros, Contacto
+- Botones de acción: Reservar, Admin
+- **Menú móvil funcional** con hamburguesa animada
+- Cierre automático al navegar
+
+## 🎨 Sistema de Diseño
+
+### **Esquema de Colores**
+- **Verde corporativo**: `from-green-600 to-green-800`
+- **Botones primarios**: Fondo blanco con texto verde
+- **Botones secundarios**: Transparente con borde blanco
+- **Hover effects**: Transiciones suaves en todos los elementos
+
+### **Componentes Reutilizables**
+- **Header**: Componente configurable para todas las páginas
+- **MenuItemCard**: Card interactiva para elementos del menú
+- **Button**: Múltiples variantes y tamaños
+- **Card**: Sistema de tarjetas consistente
+
+## 📱 Responsive Design
+
+### **Breakpoints**
+- **Mobile**: < 768px (1 columna, menú hamburguesa)
+- **Tablet**: 768px - 1024px (2 columnas)
+- **Desktop**: > 1024px (3 columnas, navegación completa)
+
+### **Características Móviles**
+- Menú hamburguesa funcional con animaciones
+- Cards optimizadas para touch
+- Imágenes responsivas con diferentes tamaños
+- Botones de tamaño adecuado para dedos
 
 ## 🔧 Configuración Técnica
 
 ### **TypeScript**
 - Configuración modular con referencias de proyecto
-- Paths aliases configurados
+- Paths aliases configurados (`@/components`, `@/lib`)
 - Tipos estrictos habilitados
 
 ### **Vite**
@@ -194,19 +194,18 @@ El proyecto utiliza un sistema de variables CSS personalizado con soporte para m
 ### **ESLint**
 - Configuración moderna con flat config
 - Reglas específicas para React y TypeScript
-- Plugins para React Hooks y React Refresh
 
-## 📝 Próximos Pasos Recomendados
+## 🚧 Próximas Mejoras Sugeridas
 
-1. **Desarrollar componentes del menú** (MenuCard, MenuItem, CategoryFilter)
-2. **Crear layouts principales** (Header, Footer, Navigation)
-3. **Implementar páginas core** (Home, Menu, About, Contact)
-4. **Configurar React Router** para navegación
-5. **Desarrollar panel de administración** para gestión de menú
-6. **Integrar sistema de backend** para datos dinámicos
-7. **Implementar responsive design** para móviles
-8. **Añadir animaciones y transiciones**
+1. **Backend Integration** - Conectar con API para datos dinámicos
+2. **Sistema de Reservas** - Funcionalidad completa de reservas
+3. **Panel de Administración** - Gestión de menú y pedidos
+4. **Carrito de Compras** - Sistema de pedidos online
+5. **Autenticación** - Login para usuarios y admin
+6. **Base de Datos** - Persistencia de datos
+7. **Pagos Online** - Integración con pasarelas de pago
+8. **Notificaciones** - Sistema de alertas y confirmaciones
 
 ## 📄 Licencia
 
-Proyecto privado - Versión 0.0.0
+Proyecto privado - Versión 1.0.0
